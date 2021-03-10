@@ -8,6 +8,9 @@ const {authCheck} = require('../middlewares/auth');
 const {createOrUpdateUser} = require('../controllers/auth');
 
 router.post('/create-or-update-user', authCheck, createOrUpdateUser);
+console.log('HEY CREATE OR UPDATE_USER')
+
+
 
 module.exports = router;
 
