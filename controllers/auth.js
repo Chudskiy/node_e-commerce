@@ -9,7 +9,7 @@ exports.createOrUpdateUser = async (req, res) => {
         {new: true}
     );
 
-    console.log('user in controller = ', user)
+    // console.log('user in controller = ', user)
 
     if (user) {
         res.json(user);
