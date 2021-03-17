@@ -11,7 +11,7 @@ exports.create = async (req, res) => {
             name,
             slug: slugify(name)
         }).save();
-        res .json(category);
+        res.json(category);
 
     } catch (err) {
         res.status(400).send('Create category failed');
@@ -34,7 +34,7 @@ exports.update = async (req, res) => {
             {slug: req.params.slug},
             {name, slug: slugify(name)},
             {new: true},
-            );
+        );
         res.json(updated);
     } catch (err) {
         res.status(400).json('Update category failed');
@@ -50,9 +50,13 @@ exports.remove = async (req, res) => {
     }
 };
 
-exports.getSubs = (req, res) => {
-    Sub.find({parent: req.params._id}).exec((err, subs) => {
+exports.getSubs = async (req, res) => {
+    console.log('req.data = ', req.params._id);
+    await Sub.find({parent: req.params._id}).exec((err, subs) => {
         if (err) console.log('err = ', err);
+        console.log('res = ', subs);
         res.json(subs);
     })
 };
+
+
