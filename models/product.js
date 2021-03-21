@@ -57,12 +57,12 @@ const productSchema = new mongoose.Schema({
         type: String,
         enum: ['Apple', 'Samsung', 'Microsoft', 'Lenovo', 'ASUS'],
     },
-    // ratings: [
-    //     {
-    //     type: Number,
-    //     postedBy: {type: ObjectId, ref: 'User'},
-    // },
-    // ],
+    ratings: [
+        {
+            type: Number,
+            postedBy: {type: ObjectId, ref: 'User'},
+        },
+    ],
 }, {timestamps: true});
 
 module.exports = mongoose.model('Product', productSchema);
